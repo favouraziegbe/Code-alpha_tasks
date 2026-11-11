@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern, responsive calculator built by Favour Aziegbe.">
+    <meta name="theme-color" content="#101014">
+
+    <title>Calculator | Favour Aziegbe</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <main class="calculator">
+
+        <!-- HEADER -->
+        <header class="calculator-header">
+            <h1>Calculator</h1>
+            <p>Calculate with precision.</p>
+        </header>
+
+        <!-- DISPLAY -->
+        <section class="display" aria-label="Calculator display">
+
+            <div
+                class="previous-operand"
+                id="previous-operand"
+                aria-live="polite">
+            </div>
+
+            <div
+                class="current-operand"
+                id="current-operand"
+                aria-live="assertive">
+                0
+            </div>
+
+            <div
+                class="live-preview"
+                id="live-preview"
+                aria-live="polite">
+            </div>
+
+        </section>
+
+        <!-- CALCULATOR BUTTONS -->
+        <section class="buttons" aria-label="Calculator buttons">
+
+            <button type="button" class="utility" data-action="clear">AC</button>
+            <button type="button" class="utility" data-action="delete">DEL</button>
+            <button type="button" class="utility" data-action="percent">%</button>
+            <button type="button" class="operator" data-operator="/">÷</button>
+
+            <button type="button" data-number="7">7</button>
+            <button type="button" data-number="8">8</button>
+            <button type="button" data-number="9">9</button>
+            <button type="button" class="operator" data-operator="*">×</button>
+
+            <button type="button" data-number="4">4</button>
+            <button type="button" data-number="5">5</button>
+            <button type="button" data-number="6">6</button>
+            <button type="button" class="operator" data-operator="-">−</button>
+
+            <button type="button" data-number="1">1</button>
+            <button type="button" data-number="2">2</button>
+            <button type="button" data-number="3">3</button>
+            <button type="button" class="operator" data-operator="+">+</button>
+
+            <button type="button" data-action="sign">±</button>
+            <button type="button" data-number="0">0</button>
+            <button type="button" data-action="decimal">.</button>
+            <button type="button" class="equals" data-action="calculate">=</button>
+
+        </section>
+
+        <!-- KEYBOARD INSTRUCTIONS -->
+        <footer class="calculator-footer">
+            <p>Keyboard supported · Press ESC to clear</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

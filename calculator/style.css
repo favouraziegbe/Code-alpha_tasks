@@ -1,0 +1,302 @@
+
+/* ========================================
+   1. DESIGN FOUNDATION
+======================================== */
+
+:root {
+    --background: #101014;
+    --surface: #1b1b23;
+    --button: #292933;
+    --accent: #9875ff;
+    --accent-hover: #ad92ff;
+    --text: #f5f3fa;
+    --muted: #9995a5;
+    --operator: #34294c;
+    --border: #30303b;
+}
+
+
+/* ========================================
+   2. RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   3. PAGE LAYOUT
+======================================== */
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 24px;
+
+    background: var(--background);
+    color: var(--text);
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* ========================================
+   4. CALCULATOR CONTAINER
+======================================== */
+
+.calculator {
+    width: 100%;
+    max-width: 380px;
+
+    padding: 25px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ========================================
+   5. HEADER
+======================================== */
+
+.calculator-header {
+    margin-bottom: 30px;
+}
+
+.calculator-header h1 {
+    font-size: 24px;
+    letter-spacing: 0.5px;
+}
+
+.calculator-header p {
+    margin-top: 6px;
+
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* ========================================
+   6. DISPLAY
+======================================== */
+
+.display {
+    min-height: 135px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    gap: 12px;
+
+    padding: 20px 5px;
+    margin-bottom: 20px;
+
+    overflow: hidden;
+}
+
+.previous-operand {
+    width: 100%;
+
+    color: var(--muted);
+    font-size: 17px;
+
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.current-operand {
+    max-width: 100%;
+
+    font-size: clamp(32px, 10vw, 44px);
+    font-weight: 600;
+
+    overflow-wrap: anywhere;
+    text-align: right;
+}
+
+.live-preview {
+    min-height: 24px;
+    width: 100%;
+
+    color: var(--accent);
+    font-size: 18px;
+    font-weight: 600;
+
+    text-align: right;
+}
+
+
+/* ========================================
+   7. BUTTON GRID
+======================================== */
+
+.buttons {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+/* ========================================
+   8. GENERAL BUTTON STYLING
+======================================== */
+
+button {
+    min-width: 0;
+    height: 65px;
+
+    border: none;
+    border-radius: 18px;
+
+    background: var(--button);
+    color: var(--text);
+
+    font-size: 19px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover {
+    background: #383844;
+}
+
+button:active {
+    transform: scale(0.94);
+}
+
+button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+
+/* ========================================
+   9. SPECIAL BUTTONS
+======================================== */
+
+button.utility {
+    color: var(--accent);
+    background: #30283f;
+}
+
+button.utility:hover {
+    background: #413553;
+}
+
+button.operator {
+    color: var(--accent);
+    background: var(--operator);
+}
+
+button.operator:hover {
+    background: #45365f;
+}
+
+button.equals {
+    color: #ffffff;
+    background: var(--accent);
+}
+
+button.equals:hover {
+    background: var(--accent-hover);
+}
+
+
+/* ========================================
+   10. FOOTER
+======================================== */
+
+.calculator-footer {
+    margin-top: 22px;
+
+    text-align: center;
+}
+
+.calculator-footer p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+
+/* ========================================
+   11. TABLET AND SMALL SCREEN ADJUSTMENTS
+======================================== */
+
+@media (max-width: 400px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .calculator {
+        padding: 18px;
+    }
+
+    .buttons {
+        gap: 9px;
+    }
+
+    button {
+        height: 58px;
+        border-radius: 15px;
+    }
+
+}
+
+
+/* ========================================
+   12. VERY SMALL SCREENS
+======================================== */
+
+@media (max-width: 320px) {
+
+    .calculator {
+        padding: 14px;
+    }
+
+    .buttons {
+        gap: 7px;
+    }
+
+    button {
+        height: 53px;
+        font-size: 17px;
+        border-radius: 12px;
+    }
+
+}
+
+
+/* ========================================
+   13. REDUCED MOTION ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    button {
+        transition: none;
+    }
+
+}
